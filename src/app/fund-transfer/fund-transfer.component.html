@@ -5,7 +5,7 @@
     <div class="card-body">
         <form #myForm="ngForm" (ngSubmit)="transferFund(myForm.value)">
             <div class="mb-3">
-                <label for="senderAccountNumber" class="form-label">Sender Account Number</label>
+                <label for="senderAccountNumber" class="form-label">Sender Account Number</label><font color="red">*</font> 
                 <input type="text" class="form-control" name="senderAcountNumber"  required pattern="[0-9]+" #senderAcountNumber="ngModel" ngModel >
                 <div *ngIf="senderAcountNumber.touched">
                     <div *ngIf="senderAcountNumber.errors?.['required']">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="receiverAccountNumber" class="form-label">Receiver Account Number</label>
+                <label for="receiverAccountNumber" class="form-label">Receiver Account Number</label><font color="red">*</font> 
                 <input type="text" class="form-control" name="receiverAccountNumber" required pattern="[0-9]+" #receiverAccountNumber="ngModel" ngModel>
                 <div *ngIf="receiverAccountNumber.touched">
                     <div *ngIf="receiverAccountNumber.errors?.['required']">
@@ -30,14 +30,14 @@
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" name="name">
+                <input type="text" class="form-control" name="name" ngModel>
             </div>
             <div class="mb-3">
                 <label for="reference" class="form-label">Reference</label>
-                <input type="text" class="form-control" name="reference">
+                <input type="text" class="form-control" name="reference" ngModel>
             </div>
             <div class="mb-3">
-                <label for="amount" class="form-label">Amount</label>
+                <label for="amount" class="form-label">Amount</label><font color="red">*</font> 
                 <input type="text" class="form-control" name="amount" required pattern="[0-9]+" #amount="ngModel" ngModel>
                 <div *ngIf="amount.touched">
                     <div *ngIf="amount.errors?.['required']">

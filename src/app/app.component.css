@@ -1,0 +1,19 @@
+.nav-tabs {
+    background-color:#e938ab; /* Set the background color of the navbar */
+}
+
+.nav-tabs .nav-item .nav-link {
+    color: #fff; /* Set the text color of the navbar links */
+}
+
+.nav-tabs .nav-item .nav-link.active {
+    background-color: #a10a6c; /* Set the background color of the active navbar link */
+    border-color:  #a10a6c; /* Set the border color of the active navbar link */
+}
+
+/* Set background color for the page */
+body {
+    background-image: url('../assets/images/bank.jpg');
+    background-size: cover; /* Adjusts the background image size to cover the entire viewport */
+    background-position: center; /* Centers the background image */
+  }
