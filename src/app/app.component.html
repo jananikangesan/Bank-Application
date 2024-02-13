@@ -1,11 +1,11 @@
-<div>
-  <table width="100%" [cellSpacing]="5" [cellPadding]="5">
-      <thead>
-          <tr>
-              <td><a routerLink="fundTransfer">Fund Transfer</a></td>
-               <td><a routerLink="updatePassword">Update Customer Password</a></td> 
-          </tr>
-      </thead>
-  </table>
-</div>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active"  aria-current="page" routerLink="fundTransfer">Fund Transfer</a> 
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="updatePassword">Update Customer Password</a>
+    </li>
+</ul>
+
 <router-outlet></router-outlet>
