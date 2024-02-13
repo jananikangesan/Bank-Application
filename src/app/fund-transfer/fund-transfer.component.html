@@ -5,14 +5,14 @@
     <div class="card-body">
         <form #myForm="ngForm" (ngSubmit)="transferFund(myForm.value)">
             <div class="mb-3">
-                <label for="senderAccountNumber" class="form-label">Sender Account Number</label><font color="red">*</font> 
-                <input type="text" class="form-control" name="senderAcountNumber"  required pattern="[0-9]+" #senderAcountNumber="ngModel" ngModel >
-                <div *ngIf="senderAcountNumber.touched">
-                    <div *ngIf="senderAcountNumber.errors?.['required']">
-                       <font color="red">Sender Account Number is Required</font>    
+                <label for="senderUsername" class="form-label">Sender Username</label><font color="red">*</font> 
+                <input type="text" class="form-control" name="senderUsername"  required pattern="[a-zA-Z][a-zA-Z]+" #senderUsername="ngModel" ngModel >
+                <div *ngIf="senderUsername.touched">
+                    <div *ngIf="senderUsername.errors?.['required']">
+                       <font color="red">Sender Username is Required</font>    
                    </div>
-                   <div *ngIf="senderAcountNumber.errors?.['pattern']">
-                    <font color="red">Invalid Sender Account Number.Please enter digits only.</font> 
+                   <div *ngIf="senderUsername.errors?.['pattern']">
+                    <font color="red">Invalid Sender Username.</font> 
                     </div>
                 </div>
             </div>

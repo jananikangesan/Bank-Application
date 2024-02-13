@@ -12,10 +12,6 @@ export class FundTransferComponent implements OnInit{
   @ViewChild('myForm') myForm!: NgForm;
   msg?: string;
 
-  senderAccount:number=0;
-  receiverAccount:number=0;
-  amount:number=0;
-
   constructor(private customerService: CustomerServiceService){}
 
   ngOnInit(): void {
@@ -23,14 +19,17 @@ export class FundTransferComponent implements OnInit{
   }
 
   transferFund(obj :any){
-    this.senderAccount=obj.senderAcountNumber;
-    this.receiverAccount=obj.receiverAccountNumber;
-    this.amount=obj.amount;
-    this.customerService.fundTransfer(this.senderAccount,this.receiverAccount,this.amount).subscribe(data=>{
+    const senderUsername=obj.senderUsername;
+    const receiverAccount=obj.receiverAccountNumber;
+    const amount=obj.amount;
+    this.customerService.fundTransfer(senderUsername,receiverAccount,amount).subscribe(data=>{
       this.msg = 'fund Transfered successfully.';
       alert(this.msg);
       console.log(this.msg);
     },error=>console.log(error))
    this.myForm.resetForm();
+  }
+  receiverAccount(senderUsername: any, receiverAccount: any, amount: any) {
+    throw new Error('Method not implemented.');
   }
 }

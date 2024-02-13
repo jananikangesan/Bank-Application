@@ -12,8 +12,8 @@ export class CustomerServiceService {
   constructor(private http: HttpClient) {
   }
 
-  fundTransfer(senderAccountNo: number, receiverAccountNo: number, amount: number): Observable<string> {
-    return this.http.put<string>(`${this.baseURL}/customer/fundTransfer?senderAccountNo=${senderAccountNo}&receiverAccountNo=${receiverAccountNo}&amount=${amount}`, null);
+  fundTransfer(senderUsername: string, receiverAccountNo: number, amount: number): Observable<string> {
+    return this.http.put<string>(`${this.baseURL}/customer/fundTransfer?SenderUsername=${senderUsername}&receiverAccountNo=${receiverAccountNo}&amount=${amount}`, null);
   }
 
   updateCustomerPassword(username:string, currentPassword: string, newPassword: string): Observable<string> {
