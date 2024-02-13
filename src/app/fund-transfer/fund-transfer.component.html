@@ -6,11 +6,27 @@
         <form #myForm="ngForm" (ngSubmit)="transferFund(myForm.value)">
             <div class="mb-3">
                 <label for="senderAccountNumber" class="form-label">Sender Account Number</label>
-                <input type="text" class="form-control" name="senderAcountNumber" ngModel required>
+                <input type="text" class="form-control" name="senderAcountNumber"  required pattern="[0-9]+" #senderAcountNumber="ngModel" ngModel >
+                <div *ngIf="senderAcountNumber.touched">
+                    <div *ngIf="senderAcountNumber.errors?.['required']">
+                       <font color="red">Sender Account Number is Required</font>    
+                   </div>
+                   <div *ngIf="senderAcountNumber.errors?.['pattern']">
+                    <font color="red">Invalid Sender Account Number.Please enter digits only.</font> 
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="receiverAccountNumber" class="form-label">Receiver Account Number</label>
-                <input type="text" class="form-control" name="receiverAccountNumber" ngModel required>
+                <input type="text" class="form-control" name="receiverAccountNumber" required pattern="[0-9]+" #receiverAccountNumber="ngModel" ngModel>
+                <div *ngIf="receiverAccountNumber.touched">
+                    <div *ngIf="receiverAccountNumber.errors?.['required']">
+                       <font color="red">Receiver Account Number is Required</font>    
+                   </div>
+                   <div *ngIf="receiverAccountNumber.errors?.['pattern']">
+                    <font color="red">Invalid Receiver Account Number.Please enter digits only.</font> 
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -22,7 +38,15 @@
             </div>
             <div class="mb-3">
                 <label for="amount" class="form-label">Amount</label>
-                <input type="text" class="form-control" name="amount" ngModel required>
+                <input type="text" class="form-control" name="amount" required pattern="[0-9]+" #amount="ngModel" ngModel>
+                <div *ngIf="amount.touched">
+                    <div *ngIf="amount.errors?.['required']">
+                       <font color="red">Amount is Required</font>    
+                   </div>
+                   <div *ngIf="amount.errors?.['pattern']">
+                    <font color="red">Invalid Amount.Please enter digits only.</font> 
+                    </div>
+                </div>
             </div>
             <div class="d-grid col-6 mx-auto">
                 <button type="submit" class="btn btn-dark">Transfer Fund</button>
