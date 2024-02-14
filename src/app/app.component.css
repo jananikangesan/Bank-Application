@@ -1,5 +1,5 @@
 .nav-tabs {
-    background-color:#e938ab; /* Set the background color of the navbar */
+    background-color: #969296; /* Set the background color of the navbar */
 }
 
 .nav-tabs .nav-item .nav-link {
@@ -7,8 +7,8 @@
 }
 
 .nav-tabs .nav-item .nav-link.active {
-    background-color: #a10a6c; /* Set the background color of the active navbar link */
-    border-color:  #a10a6c; /* Set the border color of the active navbar link */
+    background-color: #6f6d6f; /* Set the background color of the active navbar link */
+    border-color:  #6f6d6f; /* Set the border color of the active navbar link */
 }
 
 /* Set background color for the page */

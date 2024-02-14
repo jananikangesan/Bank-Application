@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class CustomerServiceService {
   }
 
   fundTransfer(senderUsername: string, receiverAccountNo: number, amount: number): Observable<string> {
-    return this.http.put<string>(`${this.baseURL}/customer/fundTransfer?SenderUsername=${senderUsername}&receiverAccountNo=${receiverAccountNo}&amount=${amount}`, null);
+    return this.http.put<string>(`${this.baseURL}/customer/fundTransfer?senderUsername=${senderUsername}&receiverAccountNo=${receiverAccountNo}&amount=${amount}`, null);
   }
 
   updateCustomerPassword(username:string, currentPassword: string, newPassword: string): Observable<string> {
@@ -23,4 +23,5 @@ export class CustomerServiceService {
     };
     return this.http.put<string>(`${this.baseURL}/customer/updateCustomerPassword?username=${username}`, body);
   }
+
 }

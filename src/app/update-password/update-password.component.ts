@@ -24,8 +24,7 @@ export class UpdatePasswordComponent implements OnInit{
     const currentPassword=obj.currentPassword;
     const newPassword=obj.newPassword;
     this.customerService.updateCustomerPassword(username,currentPassword,newPassword).subscribe(data=>{
-      console.log(data);
-      this.msg = 'Customer Password Updated Successfully';
+      this.msg =data; 
       console.log(this.msg);
     },error=>console.log(error))
    this.myForm.resetForm();

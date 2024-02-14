@@ -23,13 +23,10 @@ export class FundTransferComponent implements OnInit{
     const receiverAccount=obj.receiverAccountNumber;
     const amount=obj.amount;
     this.customerService.fundTransfer(senderUsername,receiverAccount,amount).subscribe(data=>{
-      this.msg = 'fund Transfered successfully.';
-      alert(this.msg);
+      this.msg = data;
       console.log(this.msg);
     },error=>console.log(error))
    this.myForm.resetForm();
   }
-  receiverAccount(senderUsername: any, receiverAccount: any, amount: any) {
-    throw new Error('Method not implemented.');
-  }
+
 }
