@@ -1,6 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CustomerServiceService } from '../service/customer-service.service';
 import { NgForm } from '@angular/forms';
+import { ApiResponse } from '../model/api-response';
+import { clearScreenDown } from 'readline';
+
+
 
 @Component({
   selector: 'app-fund-transfer',
@@ -10,7 +14,11 @@ import { NgForm } from '@angular/forms';
 export class FundTransferComponent implements OnInit{
 
   @ViewChild('myForm') myForm!: NgForm;
-  msg?: string;
+  msg?: ApiResponse; // Use the ApiResponse interface here
+
+  flag:boolean=false;
+  flagMsg: boolean=false;
+  flagError: boolean=false;
 
   constructor(private customerService: CustomerServiceService){}
 
@@ -18,16 +26,27 @@ export class FundTransferComponent implements OnInit{
     this.transferFund;
   }
 
-  transferFund(obj :any){
-    const senderUsername=obj.senderUsername;
-    const receiverAccount=obj.receiverAccountNumber;
-    const amount=obj.amount;
-    this.customerService.fundTransfer(senderUsername,receiverAccount,amount).subscribe(data=>{
-      this.msg = data;
-      console.log(this.msg);
-      this.myForm.resetForm();
-    },error=>console.log(error))
-   
-  }
+  transferFund() {
+    const obj = this.myForm.value;
+    const senderUsername = obj.senderUsername;
+    const receiverAccount = obj.receiverAccountNumber;
+    const amount = obj.amount;
+    
+    this.customerService.fundTransfer(senderUsername, receiverAccount, amount).subscribe(
+      (data: any) => { // Correct subscription syntax
+        this.msg = data; // Assign response directly
+        console.log(this.msg);
+        this.flagMsg = true;
+        this.flag = true;
+        this.myForm.resetForm();
+      },
+      error => {
+        console.log(error);
+        this.msg = error; // Assign error directly
+        this.flagError = true;
+        this.flag = true;
+      }
+    );
+}
 
 }
