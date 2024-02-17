@@ -25,8 +25,9 @@ export class FundTransferComponent implements OnInit{
     this.customerService.fundTransfer(senderUsername,receiverAccount,amount).subscribe(data=>{
       this.msg = data;
       console.log(this.msg);
+      this.myForm.resetForm();
     },error=>console.log(error))
-   this.myForm.resetForm();
+   
   }
 
 }
